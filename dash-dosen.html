@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Dosen</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+  <link href="dash-dosen.css" rel="stylesheet">
+</head>
+<body>
+  <div class="main-container">
+    <div class="dashboard-title">Dashboard Dosen</div>
+
+    <div class="header">
+      <div class="profile-img"></div>
+      <div class="user-info">
+        <h4>Ledyvia Audiz, S.Kom</h4>
+        <h5>Aljabar Linear</h5>
+      </div>
+    </div>
+
+    <div class="feature-container">
+      <div class="row g-4">
+        <div class="col-sm-6 col-md-4 feature-item" id="mahasiswa-menu">
+          <div class="feature-icon">
+            <img src="kelas.png" alt="Mahasiswa Icon">
+          </div>
+          <div class="feature-title">Mahasiswa</div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 feature-item">
+          <div class="feature-icon">
+            <img src="quiz.png" alt="Quiz Icon">
+          </div>
+          <div class="feature-title">Quiz</div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 feature-item">
+          <div class="feature-icon">
+            <img src="materi.png" alt="Materi Icon">
+          </div>
+          <div class="feature-title">Materi</div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 feature-item">
+          <div class="feature-icon">
+            <img src="jadwal.png" alt="Jadwal Icon">
+          </div>
+          <div class="feature-title">Jadwal</div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 feature-item">
+          <div class="feature-icon">
+            <img src="tugas.png" alt="Tugas Icon">
+          </div>
+          <div class="feature-title">Tugas</div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 feature-item">
+          <div class="feature-icon">
+            <img src="pengunguman.png" alt="Pengumuman Icon">
+          </div>
+          <div class="feature-title">Pengumuman</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const featureItems = document.querySelectorAll('.feature-item');
+      const pages = {
+        'Mahasiswa': 'kelas-dosen.html',
+        'Quiz': 'quiz-dosen.html',
+        'Materi': 'materi-dosen.html',
+        'Jadwal': 'jadwal-dosen.html',
+        'Tugas': 'tugas-dosen.html',
+        'Pengumuman': 'pengunguman-dosen.html'
+      };
+
+      featureItems.forEach(item => {
+        item.addEventListener('click', function () {
+          const featureTitle = this.querySelector('.feature-title').textContent.trim();
+          if (pages[featureTitle]) {
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+              this.style.transform = 'scale(1)';
+              window.location.href = pages[featureTitle];
+            }, 200);
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
